@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+.banner{
+background-color:darkslategrey;
+width:100%;
+height:200px;
+margin-bottom:50px;
+}
+.banner-text{
+top:50%;
+left:50%;
+position:absolute;
+transform:translate(-50%,-50%)
+color:white;
+}
+.head{
+color:white;
+}
