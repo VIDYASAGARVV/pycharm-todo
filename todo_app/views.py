@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from . models import Task
+from . forms import Todoforms
 # Create your views here.
 def task_view(request):
     obj1=Task.objects.all()
@@ -26,3 +27,11 @@ def delete(request,taskid):
 #         obj = Task(name=name, priority=priority)
 #         obj.save()
 #     return render(request,'task.html')
+
+def update(request,id):
+    task=Task.objects.get(id=id)
+    form=Todoforms(request.POST or None,instance=task)
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    return render(request,'edit.html',{'task':task,'form':form})
